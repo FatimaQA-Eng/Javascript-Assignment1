@@ -28,3 +28,16 @@ console.log(userMessage);
 // Final Part: Boolean Operator (Ternary)
 console.log(isLoggedIn ? "Status: Online" : "Status: Offline");
 console.log("TEST OUTPUT");
+
+PS C:\Users\leena\JavaScript_Practice> 
+PS C:\Users\leena\JavaScript_Practice> cd Assignment_01_UserProfile
+>> 
+PS C:\Users\leena\JavaScript_Practice\Assignment_01_UserProfile> node userProfile.js
+>> 
+Welcome, Jane Doe! You are 35 years old.
+Status: Online
+TEST OUTPUT
+PS C:\Users\leena\JavaScript_Practice\Assignment_01_UserProfile> 
+
+
+
