@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  // Recording...
+  await page.goto('https://bstackdemo.com/');
+  await expect(page.locator('[id="2"]').getByText('Add to cart')).toBeVisible();
+  await page.locator('[id="4"]').getByText('Add to cart').click();
+  await page.locator('[id="2"]').getByText('Add to cart').click();
+  await page.getByText('iPhone 12 Pro').nth(2).click();
+  await expect(page.getByText('iPhone 12 Pro').nth(2)).toBeVisible();
+  await page.getByText('iPhone 12 Mini').nth(1).click();
+  await expect(page.getByText('iPhone 12 MiniApple Quantity: 1$ 699.00-+')).toBeVisible();
+  await page.getByText('Bag').click();
+  await page.getByText('$ 1698.00').click();
+  await page.getByText('X', { exact: true }).click();
+  await page.locator('span').filter({ hasText: '2' }).nth(1).click();
+  await page.getByText('$ 1698.00').click();
+  await expect(page.getByText('SUBTOTAL$ 1698.00OR UP TO 9 x')).toBeVisible();
+  await expect(page.getByText('$ 1698.00')).toBeVisible();
+  await page.getByText('$ 1698.00').click();
+  await page.getByText('SUBTOTAL').click();
+  await page.getByText('X', { exact: true }).click();
+  await page.locator('span').filter({ hasText: '2' }).nth(1).click();
+  await page.getByText('X', { exact: true }).click();
+  await page.getByRole('link', { name: 'Sign In' }).click();
+  await page.locator('div').filter({ hasText: /^Select Username$/ }).nth(2).click();
+  await page.getByText('existing_orders_user', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^Select Password$/ }).nth(2).click();
+  await page.getByText('testingisfun99', { exact: true }).click();
+  await page.getByRole('button', { name: 'Log In' }).click();
+  await page.locator('span').filter({ hasText: '2' }).nth(1).click();
+});
